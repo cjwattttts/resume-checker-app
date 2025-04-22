@@ -23,19 +23,27 @@ function KeywordInsight({ resumeText }) {
 
   return (
     // Use flexbox to show the two lists side by side
-    <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+    <div style={{ 
+      display: 'flex', 
+      gap: '4rem',                    // more spacing between lists
+      marginTop: '2rem', 
+      flexWrap: 'wrap', 
+      justifyContent: 'center',      // keep layout centered
+      maxWidth: '1200px',            // give the full area room
+      width: '100%' 
+    }}>
       {/* Matched skills list */}
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: '300px' }}>
         <h3 style={{ color: '#ffffff' }}>Skills Detected</h3>
         <ul>
-          {matched.map((skill, i) => (
+          {matched.filter(skill => skill.trim() !== '').map((skill, i) => (
             <li key={i} className="matched-skill">{skill}</li>
           ))}
         </ul>
       </div>
 
       {/* Missing skills list */}
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: '300px' }}>
         <h3 style={{ color: '#ffffff' }}>Skills Not Found</h3>
         <ul>
           {missing.map((skill, i) => (
