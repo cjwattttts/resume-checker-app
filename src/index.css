@@ -26,16 +26,16 @@ h1 {
   background: linear-gradient(90deg, #b561fe 0%, #7e3dff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.2rem; /* tighten space under title */
+  margin-bottom: 0.2rem;
 }
 
 /* Subtitle styling */
-/* move this text closer to the h1 so the intro looks unified */
+/* Make sure all non-h1 text has high contrast white */
 p {
   text-align: center;
   color: #ffffff; /* fixed: was too dark (#271a61) */
   font-size: 1.15rem;
-  margin-bottom: 1.25rem; /* reduced spacing for coherence */
+  margin-bottom: 2rem;
 }
 
 /* Default link style */
