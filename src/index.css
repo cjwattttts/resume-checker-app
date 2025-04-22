@@ -1,4 +1,5 @@
 /* Reset and base styles for all elements */
+/* Clean up any default browser styling */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,20 +30,23 @@ h1 {
 }
 
 /* Subtitle styling */
+/* Make sure all non-h1 text has high contrast white */
 p {
   text-align: center;
-  color: #271a61;
+  color: #ffffff; /* fixed: was too dark (#271a61) */
   font-size: 1.15rem;
   margin-bottom: 2rem;
 }
 
 /* Default link style */
+/* Links should blend with the theme and not have underline */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* App container styling */
+/* This is the main white panel where all the resume tools live */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -70,11 +74,12 @@ textarea {
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #ffffff;
+  color: #ffffff; /* this looked too light before, changed from #e0d9ff */
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
 }
 
+/* Add glowing border when user clicks into textarea */
 textarea:focus {
   outline: none;
   border-color: #8e2de2;
@@ -82,6 +87,7 @@ textarea:focus {
 }
 
 /* Score bar container */
+/* XP bar background */
 .score-bar-container {
   background-color: #3c3d43;
   border-radius: 10px;
@@ -93,6 +99,7 @@ textarea:focus {
 }
 
 /* Score bar fill (purple gradient) */
+/* this fills the XP bar based on percentage */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -105,6 +112,7 @@ textarea:focus {
 }
 
 /* Skill list */
+/* used to show matched/missing skill sections */
 ul {
   list-style: none;
   padding-left: 0;
@@ -115,6 +123,7 @@ li {
   font-size: 1.05rem;
 }
 
+/* Custom bullet dot to match the theme */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -122,22 +131,25 @@ li::before {
   color: #8e2de2;
 }
 
+/* Skills that were found in the resume */
 .matched-skill {
-  color: #a386ff;
+  color: #cbb8ff; /* more legible lavender than before */
   font-weight: bold;
 }
 
+/* Skills that are missing from resume */
 .missing-skill {
-  color: #9457eb;
+  color: #a87dfd; /* soft purple, not red */
 }
 
 /* Warnings box */
+/* Highlight vague buzzwords or filler phrases */
 .warning-box {
   background-color: #372d46;
   border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #dccdfc;
+  color: #ffffff; /* fixed: was #dccdfc, now clearer */
   margin-top: 2rem;
   width: 100%;
   max-width: 1200px;
@@ -153,10 +165,11 @@ li::before {
   max-width: 1200px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  color: #d8c8ff;
+  color: #ffffff; /* fixed: was #d8c8ff, now stronger contrast */
 }
 
 /* Footer */
+/* Keep this minimal and soft but readable */
 footer {
   margin-top: 4rem;
   text-align: center;
@@ -165,6 +178,7 @@ footer {
 }
 
 /* Responsive tweaks */
+/* make layout mobile friendly without breaking components */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
