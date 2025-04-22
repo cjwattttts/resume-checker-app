@@ -1,5 +1,6 @@
-// Detect filler phrases and buzzwords in resume
-// Show a warning section if any are found
+// ContentWarnings.jsx
+// I want to scan the resume for filler phrases like “hardworking” and “team player”
+// If it finds any, display a yellow warning box with a list of them
 
 import React from 'react';
 
@@ -19,7 +20,7 @@ function ContentWarnings({ resumeText }) {
     <div className="warning-box">
       <h4 style={{ marginBottom: '0.5rem' }}>Soft Warnings</h4>
       <p>
-        The following vague or overused phrases were found in your resume. Consider replacing them with measurable or specific language:
+        The following vague or overused phrases were detected. Consider replacing them with specific, measurable language:
       </p>
       <ul>
         {found.map((phrase, i) => (

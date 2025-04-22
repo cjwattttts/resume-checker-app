@@ -1,9 +1,6 @@
-// App: Resume Analyzer Root Component
-// Features:
-// - Resume input
-// - Match score bar
-// - Keyword match display
-// - Soft warning detection
+// App.jsx
+// I want to build a resume checker layout that pulls in components for input, score, and results
+// Let’s pass the resumeText as props and wrap everything in a clean container
 
 import React, { useState } from 'react';
 import ResumeInputArea from './ResumeInputArea';
