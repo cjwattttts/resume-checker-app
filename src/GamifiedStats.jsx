@@ -1,10 +1,10 @@
 // I want to track resume quality by awarding XP and badges based on keywords
 // Each skill match adds XP, filler phrases subtract XP, and XP increases level
+// Add animated badges, glowing XP level bar, and proper emoji styling
 
 import React, { useEffect, useState } from 'react';
 
 function GamifiedStats({ resumeText }) {
-  // Track XP, user level, and badge list
   const [xp, setXp] = useState(0);
   const [level, setLevel] = useState(1);
   const [badges, setBadges] = useState([]);
@@ -50,8 +50,8 @@ function GamifiedStats({ resumeText }) {
     setBadges(newBadges);
   }, [resumeText]);
 
-  // Determine fill percentage for XP bar
   const xpProgress = xp % 50;
+  const glowClass = xpProgress === 0 && xp > 0 ? 'glow-border' : '';
 
   return (
     // Gamified stats panel with matching dark purple theme
@@ -60,8 +60,7 @@ function GamifiedStats({ resumeText }) {
         <strong>XP:</strong> {xp} / <strong>Level:</strong> {level}
       </p>
 
-      {/* XP progress bar */}
-      {/* Make the XP bar purple and full width */}
+      {/* XP progress bar with glow when leveling up */}
       <div style={{
         backgroundColor: '#3a3356',
         borderRadius: '10px',
@@ -70,18 +69,27 @@ function GamifiedStats({ resumeText }) {
         margin: '10px auto',
         overflow: 'hidden'
       }}>
-        <div style={{
+        <div className={`score-bar-fill ${glowClass}`} style={{
           width: `${(xpProgress / 50) * 100}%`,
-          background: 'linear-gradient(90deg, #b561fe, #7e3dff)',
           height: '100%',
           transition: 'width 0.4s ease'
         }} />
       </div>
 
-      {/* Show the badges earned with emoji styling */}
-      <p style={{ marginTop: '1rem', fontSize: '1.05rem', color: '#dccdfc' }}>
-        <strong>Badges:</strong> {badges.length > 0 ? badges.join(' | ') : 'None yet – keep going!'}
+      {/* Styled badge display */}
+      <p style={{ marginTop: '1rem', fontSize: '1.1rem', color: '#ffffff' }}>
+        <strong>Badges:</strong>
       </p>
+
+      <div className="badge-row">
+        {badges.length > 0 ? (
+          badges.map((badge, i) => (
+            <span key={i} className="badge-icon">{badge}</span>
+          ))
+        ) : (
+          <p style={{ color: '#888', marginTop: '0.5rem' }}>None yet – keep going!</p>
+        )}
+      </div>
     </div>
   );
 }
