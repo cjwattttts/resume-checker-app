@@ -30,21 +30,32 @@ function ResumeSummary({ resumeText }) {
 
   return (
     // Display the summary and add a styled copy button
-    <div style={{ marginTop: '2rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
-      <h3>Resume Summary</h3>
-      <p>{summary}</p>
-      <button onClick={handleCopy} style={{
-        marginTop: '0.5rem',
-        padding: '0.5rem 1rem',
-        backgroundColor: '#2a9d8f',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '6px',
-        cursor: 'pointer'
+    <div style={{ 
+        marginTop: '2rem', 
+        borderTop: '1px solid #eee', 
+        paddingTop: '1rem', 
+        textAlign: 'center' // Center heading and paragraph
       }}>
-        Copy Summary
-      </button>
-    </div>
+        <h3>Resume Summary</h3>
+        <p>{summary}</p>
+      
+        {/* Wrap the button in a flex container to center it even if styles override */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}>
+          <button 
+            onClick={handleCopy} 
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: '#2a9d8f',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer'
+            }}
+          >
+            Copy Summary
+          </button>
+        </div>
+      </div>      
   );
 }
 
