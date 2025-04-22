@@ -48,12 +48,11 @@ a {
 }
 
 /* App container styling */
-/* This is the main white panel where all the resume tools live */
 .container {
   width: 100%;
-  max-width: 1400px; /* reduce max width to fix layout break */
+  max-width: 1200px; /* matches textarea */
   margin: 0 auto;
-  padding: 2.5rem;
+  padding: 2rem;
   background-color: #2b2c31;
   border-radius: 20px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
@@ -61,24 +60,29 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  word-break: break-word; /* prevent overflow from long words */
+  word-break: break-word;
+  overflow: hidden; /* ✨ Force no growth */
 }
 
 /* Resume textarea */
-/* Make the box much wider and a bit taller for a better editing experience */
 textarea {
-  width: 100%; /* fills the container width */
-  max-width: 1200px; /* maximum width allowed */
-  min-height: 400px; /* make it tall but not overwhelming */
+  width: 100%;
+  max-width: 100%;
+  min-height: 400px;
   padding: 1.5rem;
   border: 3px solid #a65cfa;
   border-radius: 12px;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-family: monospace;
   background-color: #ffffff;
-  color: #24082e; /* white text for better contrast */
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
-  transition: all 0.3s ease;
+  color: #24082e;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  resize: vertical; /* only allow vertical resizing */
+  overflow-x: hidden; /* prevent horizontal expansion */
+}
 
   /* Text wrapping to handle pasted resumes properly */
   white-space: pre-wrap;
