@@ -65,25 +65,25 @@ a {
 }
 
 /* Resume textarea */
-/* Make it responsive and readable without forcing page width */
+/* Make it wider and taller while still preventing layout issues */
 textarea {
-  width: 100%;
-  max-width: 100%;
-  min-height: 350px;
-  padding: 1.25rem;
+  width: 95%; /* slightly less than 100% to avoid edge cramping */
+  max-width: 1100px; /* controls how wide it gets on large screens */
+  min-height: 450px; /* increase height for a better writing experience */
+  padding: 1.5rem;
   border: 3px solid #a65cfa;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #430465; /* this looked too light before, changed from #e0d9ff */
+  color: #ffffff; /* darkened for better visibility */
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
+  
+  /* Ensure pasted resumes don't overflow */
   white-space: pre-wrap;
+  word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: pre-wrap;   /* ensures long lines break inside the box */
-  word-wrap: break-word;   /* older fallback */
-  overflow-wrap: break-word; /* newer fallback */
 }
 
 /* Add glowing border when user clicks into textarea */
