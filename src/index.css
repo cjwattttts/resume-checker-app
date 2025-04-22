@@ -1,71 +1,101 @@
+/* Reset and base styles for all elements */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Set default font, background, and text colors */
+/* Set up the base theme and background */
+/* I want a clean gray background and professional-looking font */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #eaecef; /* modern gray background */
   color: #333;
   line-height: 1.6;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
-/* Styling for all heading tags */
-h1, h2, h3, h4 {
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #111;
+/* Center the main title and give it a colorful gradient */
+/* Make the title stand out with a purple to blue gradient */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.75rem;
 }
 
-/* Basic link styling */
+/* Center and style the intro paragraph under the title */
+p {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Make all links look clean and inherit text color */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Container layout for centering the app content */
+/* Layout for the app card in the middle of the screen */
+/* I want a wide, centered container with soft shadows */
 .container {
-  max-width: 960px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem;
   background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-/* Style the resume input textarea */
+/* Textarea for resume input */
+/* Make the input readable and wide enough for desktop */
 textarea {
   width: 100%;
-  padding: 1rem;
+  max-width: 1100px;
+  min-height: 300px;
+  padding: 1.25rem;
   border: 1px solid #ddd;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: monospace;
-  background-color: #fafafa;
-  transition: all 0.3s ease;
+  background-color: #fdfdfd;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
 }
 
-/* Change border and background when focused */
+/* Add a soft highlight when textarea is focused */
 textarea:focus {
   outline: none;
-  border-color: #2a9d8f;
+  border-color: #6a11cb;
   background-color: #fff;
 }
 
-/* Container style for the animated match score bar */
+/* Score bar container under the analyzer */
+/* I want the bar to feel smooth and responsive */
 .score-bar-container {
-  background-color: #e0e0e0;
+  background-color: #ddd;
   border-radius: 10px;
   height: 30px;
+  width: 100%;
+  max-width: 1100px;
   overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
 }
 
-/* Fill bar style that changes width and color based on score */
+/* Fill color changes based on score */
+/* This should animate when the percentage changes */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -76,19 +106,18 @@ textarea:focus {
   border-radius: 10px;
 }
 
-/* Remove bullets and reset padding on skill lists */
+/* Skill list cleanup */
 ul {
   list-style: none;
   padding-left: 0;
 }
 
-/* Style each skill item */
 li {
   padding: 0.4rem 0;
   font-size: 1rem;
 }
 
-/* Add a dot before each list item */
+/* Add a dot in front of each skill */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -96,18 +125,19 @@ li::before {
   color: #aaa;
 }
 
-/* Style matched skills in green */
+/* Show detected skills in green */
 .matched-skill {
   color: #2a9d8f;
   font-weight: bold;
 }
 
-/* Style missing skills in red */
+/* Show missing skills in red */
 .missing-skill {
   color: #e76f51;
 }
 
-/* Highlight box for filler warnings */
+/* Highlight vague resume content in yellow */
+/* This box should stand out but still look professional */
 .warning-box {
   background-color: #fff3cd;
   border-left: 6px solid #ffeeba;
@@ -115,9 +145,11 @@ li::before {
   border-radius: 10px;
   color: #856404;
   margin-top: 2rem;
+  width: 100%;
+  max-width: 1100px;
 }
 
-/* Footer text styling */
+/* Footer text style */
 footer {
   margin-top: 4rem;
   text-align: center;
@@ -125,17 +157,17 @@ footer {
   color: #999;
 }
 
-/* Make layout responsive on small screens */
-@media (max-width: 600px) {
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
   body {
     padding: 1rem;
   }
 
   .container {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   textarea {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
