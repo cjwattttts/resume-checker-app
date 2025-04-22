@@ -8,7 +8,7 @@ function KeywordInsight({ resumeText }) {
   const baSkills = [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Business Requirements', 'Stakeholders', 'Process Mapping'
+    'Communication', 'Adaptability', 'Stakeholders', 'Process Mapping'
   ];
 
   // Go through the list and see which ones are mentioned in the resume

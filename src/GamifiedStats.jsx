@@ -14,7 +14,7 @@ function GamifiedStats({ resumeText }) {
   const skills = [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Business Requirements', 'Stakeholders', 'Process Mapping'
+    'Communication', 'Adaptability', 'Stakeholders', 'Process Mapping'
   ];
 
   // Common resume buzzwords that will subtract XP if detected
