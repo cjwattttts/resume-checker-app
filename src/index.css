@@ -7,20 +7,18 @@
 }
 
 /* Set a dark background for game-style theme */
-/* I want the app to feel like a modern dashboard or game interface */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: #1e1f23; /* deep gray backdrop */
-  color: #ffffff; /* white main text */
+  color: #ffffff;
   line-height: 1.6;
   padding: 2rem;
   display: flex;
   justify-content: center;
-  overflow-x: hidden; /* prevent the page from stretching when long content is pasted */
+  overflow-x: hidden;
 }
 
-/* Gradient title to make the app feel more dynamic */
-/* Animate the main heading with a colorful gradient */
+/* Gradient title with animated gradient */
 h1 {
   font-size: 3.7rem;
   font-weight: 700;
@@ -28,30 +26,27 @@ h1 {
   background: linear-gradient(90deg, #b561fe 0%, #7e3dff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.05rem;
+  margin-bottom: 0.1rem;
 }
 
 /* Subtitle styling */
-/* Make sure all non-h1 text has high contrast white */
 p {
   text-align: center;
-  color: #ffffff; /* fixed: was too dark (#271a61) */
+  color: #ffffff;
   font-size: 1.15rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
-/* Default link style */
-/* Links should blend with the theme and not have underline */
+/* Link style */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* App container styling */
-/* This is the main panel where all the resume tools live */
 .container {
   width: 100%;
-  max-width: 1000px; /* reduce max width to keep layout from breaking */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2.5rem;
   background-color: #2b2c31;
@@ -61,33 +56,32 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  word-break: break-word; /* prevent container from stretching due to long unbroken content */
+  word-break: break-word;
+  overflow-x: hidden;
 }
 
 /* Resume textarea */
-/* Make it stretch across the container and behave like a full-width code editor */
 textarea {
   display: block;
   width: 100%;
-  min-height: 400px;
+  max-width: 100%;
+  height: 500px;
   padding: 1.5rem;
   border: 3px solid #a65cfa;
   border-radius: 12px;
   font-size: 1.1rem;
   font-family: monospace;
-  background-color: #ffffff;
-  color: #24082e;
+  background-color: #1c1d22;
+  color: #ffffff;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
   resize: vertical;
-
-  /* Text wrapping to handle long lines and pasted resumes properly */
   white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: break-word;
 }
 
-/* Add glowing border when user clicks into textarea */
+/* Textarea focus state */
 textarea:focus {
   outline: none;
   border-color: #8e2de2;
@@ -95,19 +89,17 @@ textarea:focus {
 }
 
 /* Score bar container */
-/* XP bar background */
 .score-bar-container {
   background-color: #3c3d43;
   border-radius: 10px;
   height: 30px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   overflow: hidden;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Score bar fill (purple gradient) */
-/* this fills the XP bar based on percentage */
+/* Score bar fill */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -120,7 +112,6 @@ textarea:focus {
 }
 
 /* Skill list */
-/* used to show matched/missing skill sections */
 ul {
   list-style: none;
   padding-left: 0;
@@ -131,7 +122,6 @@ li {
   font-size: 1.05rem;
 }
 
-/* Custom bullet dot to match the theme */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -139,45 +129,66 @@ li::before {
   color: #8e2de2;
 }
 
-/* Skills that were found in the resume */
+/* Matched skill */
 .matched-skill {
-  color: #cbb8ff; /* more legible lavender than before */
+  color: #cbb8ff;
   font-weight: bold;
 }
 
-/* Skills that are missing from resume */
+/* Missing skill */
 .missing-skill {
-  color: #a87dfd; /* soft purple, not red */
+  color: #a87dfd;
 }
 
 /* Warnings box */
-/* Highlight vague buzzwords or filler phrases */
 .warning-box {
   background-color: #372d46;
   border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #ffffff; /* fixed: was #dccdfc, now clearer */
+  color: #ffffff;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
 }
 
-/* Gamified stats panel (badges box) */
-/* Match the rest of the theme and remove old white background */
+/* Gamified stats */
 .gamified-stats {
   background-color: #2e2640;
   padding: 1.5rem;
   border-radius: 12px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  color: #ffffff; /* fixed: was #d8c8ff, now stronger contrast */
+  color: #ffffff;
+}
+
+/* Resume summary */
+.resume-summary {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.copy-summary-button {
+  display: block;
+  margin: 1rem auto 0 auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #8e2de2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.copy-summary-button:hover {
+  background-color: #7b1fe1;
 }
 
 /* Footer */
-/* Keep this minimal and soft but readable */
 footer {
   margin-top: 4rem;
   text-align: center;
@@ -185,8 +196,7 @@ footer {
   color: #999;
 }
 
-/* Responsive tweaks */
-/* make layout mobile friendly without breaking components */
+/* Responsive layout */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
