@@ -8,43 +8,34 @@ function KeywordInsight({ resumeText }) {
   const baSkills = [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
+    'Communication', 'Adaptability', 'Stakeholders', ''
   ];
 
+  // Go through the list and see which ones are mentioned in the resume
   const matched = baSkills.filter(skill =>
     resumeText.toLowerCase().includes(skill.toLowerCase())
   );
 
+  // Find the skills that are missing from the resume
   const missing = baSkills.filter(skill =>
     !resumeText.toLowerCase().includes(skill.toLowerCase())
   );
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      gap: '4rem', 
-      marginTop: '2rem', 
-      justifyContent: 'space-between', 
-      flexWrap: 'wrap',
-      maxWidth: '1200px', 
-      width: '100%' 
-    }}>
-      {/* Matched skills */}
-      <div style={{ flex: 1, minWidth: '300px' }}>
+    // Use flexbox to show the two lists side by side
+    <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+      {/* Matched skills list */}
+      <div style={{ flex: 1 }}>
         <h3 style={{ color: '#ffffff' }}>Skills Detected</h3>
-        {matched.length > 0 ? (
-          <ul>
-            {matched.map((skill, i) => (
-              <li key={i} className="matched-skill">{skill}</li>
-            ))}
-          </ul>
-        ) : (
-          <p style={{ color: '#888', fontStyle: 'italic' }}>No skills detected yet.</p>
-        )}
+        <ul>
+          {matched.map((skill, i) => (
+            <li key={i} className="matched-skill">{skill}</li>
+          ))}
+        </ul>
       </div>
 
-      {/* Missing skills */}
-      <div style={{ flex: 1, minWidth: '300px' }}>
+      {/* Missing skills list */}
+      <div style={{ flex: 1 }}>
         <h3 style={{ color: '#ffffff' }}>Skills Not Found</h3>
         <ul>
           {missing.map((skill, i) => (
