@@ -43,9 +43,9 @@ function GamifiedStats({ resumeText }) {
 
     // Award special badges based on resume quality
     const newBadges = [];
-    if (matched.length >= 5) newBadges.push('🧠 Skill Stacker');
-    if (fillerCount === 0 && resumeText.length > 0) newBadges.push('🧹 Buzzword Killer');
-    if (resumeText.length > 1000) newBadges.push('📜 Verbose Veteran');
+    if (matched.length >= 5) newBadges.push(' Skill Stacker');
+    if (fillerCount === 0 && resumeText.length > 0) newBadges.push(' Buzzword Killer');
+    if (resumeText.length > 1000) newBadges.push(' Verbose Veteran');
 
     setBadges(newBadges);
   }, [resumeText]);
