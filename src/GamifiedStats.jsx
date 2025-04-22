@@ -115,14 +115,16 @@ function GamifiedStats({ resumeText }) {
         <strong>Badges:</strong>
       </p>
       <div className="badge-row">
-        {badges.length > 0 ? (
-          badges.map((badge, i) => (
-            <span key={i} className="badge-icon">{badge}</span>
-          ))
-        ) : (
-          <p style={{ color: '#888', marginTop: '0.5rem' }}>None yet – keep going!</p>
-        )}
-      </div>
+  {badges.length > 0 ? (
+    badges.map((badge, i) => (
+      <span key={i} className="badge-icon" style={{ marginRight: '0.6rem' }}>
+        {badge}
+      </span>
+    ))
+  ) : (
+    <p style={{ color: '#888', marginTop: '0.5rem' }}>None yet – keep going!</p>
+  )}
+</div>
     </div>
   );
 }
