@@ -8,7 +8,7 @@ function MatchScoreIndicator({ resumeText }) {
   const baSkills = [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Adaptability', 'Stakeholders', 'Process Mapping'
+    'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
   ];
 
   // See which skills are actually in the resume
