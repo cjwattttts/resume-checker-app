@@ -1,6 +1,5 @@
-// KeywordInsight.jsx
-// I want to show two lists: one for skills found in the resume, and one for the ones that are missing
-// Use the same BA skill list and just filter them out
+// Check which key Business Analyst skills are present in the resume
+// Display both matched and missing skill sets in styled columns
 
 import React from 'react';
 
@@ -21,7 +20,6 @@ function KeywordInsight({ resumeText }) {
 
   return (
     <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-      {/* Matched skills go in the left column */}
       <div style={{ flex: 1 }}>
         <h3 style={{ color: '#2a9d8f' }}>Skills Detected</h3>
         <ul>
@@ -30,8 +28,6 @@ function KeywordInsight({ resumeText }) {
           ))}
         </ul>
       </div>
-
-      {/* Missing ones go in the right column */}
       <div style={{ flex: 1 }}>
         <h3 style={{ color: '#e76f51' }}>Skills Not Found</h3>
         <ul>
