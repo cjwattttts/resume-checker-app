@@ -51,7 +51,7 @@ a {
 /* This is the main white panel where all the resume tools live */
 .container {
   width: 100%;
-  max-width: 1200px; /* reduce max width to fix layout break */
+  max-width: 1000px; /* reduce max width to fix layout break */
   margin: 0 auto;
   padding: 2.5rem;
   background-color: #2b2c31;
@@ -81,6 +81,9 @@ textarea {
   transition: all 0.3s ease;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  white-space: pre-wrap;   /* ensures long lines break inside the box */
+  word-wrap: break-word;   /* older fallback */
+  overflow-wrap: break-word; /* newer fallback */
 }
 
 /* Add glowing border when user clicks into textarea */
