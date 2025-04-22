@@ -1,6 +1,5 @@
-// ResumeInputArea.jsx
-// Add a large textarea where someone can paste their resume
-// When the user types, it should update the resumeText state in App
+// Create a styled textarea for users to paste resume content
+// Update resumeText in parent state on change
 
 import React from 'react';
 
@@ -10,14 +9,11 @@ function ResumeInputArea({ resumeText, setResumeText }) {
       <label htmlFor="resumeInput" style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block', marginBottom: '0.5rem' }}>
         Paste Your Resume Text
       </label>
-
-      {/* Text input that syncs with resumeText */}
       <textarea
         id="resumeInput"
         value={resumeText}
         onChange={(e) => setResumeText(e.target.value)}
         rows="12"
-        placeholder="Copy and paste your resume here..."
         style={{
           width: '100%',
           padding: '1rem',
@@ -28,6 +24,7 @@ function ResumeInputArea({ resumeText, setResumeText }) {
           backgroundColor: '#fdfdfd',
           boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
         }}
+        placeholder="Copy and paste your resume here. The analyzer will scan it for relevant Business Analyst skills."
       />
     </div>
   );
