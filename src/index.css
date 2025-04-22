@@ -65,8 +65,8 @@ a {
 /* Make it fully wide on load to prevent centering issues */
 textarea {
   width: 100%;
-  min-width: 1000px;
-  max-width: 1200px;
+  max-width: 100%; /* prevent expanding wider than container */
+  min-width: 0; /* remove forced min width that breaks layout */
   min-height: 350px;
   padding: 1.25rem;
   border: 3px solid #a65cfa;
@@ -74,10 +74,14 @@ textarea {
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #430465; /* this looked too light before, changed from #e0d9ff */
+  color: #430465;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
+  overflow-wrap: break-word; /* wrap long words */
+  word-break: break-word;    /* prevent text from pushing width */
+  white-space: pre-wrap;     /* keep formatting but allow line wrap */
 }
+
 
 /* Add glowing border when user clicks into textarea */
 textarea:focus {
