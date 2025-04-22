@@ -72,7 +72,7 @@ function GamifiedStats({ resumeText }) {
       }}>
         <div style={{
           width: `${(xpProgress / 50) * 100}%`,
-          background: 'linear-gradient(90deg, #8e2de2, #4a00e0)',
+          background: 'linear-gradient(90deg, #b561fe, #7e3dff)',
           height: '100%',
           transition: 'width 0.4s ease'
         }} />

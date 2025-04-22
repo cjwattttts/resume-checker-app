@@ -22,7 +22,7 @@ h1 {
   font-size: 2.7rem;
   font-weight: 700;
   text-align: center;
-  background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
+  background: linear-gradient(90deg, #b561fe 0%, #7e3dff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
@@ -65,7 +65,7 @@ textarea {
   max-width: 1200px;
   min-height: 350px;
   padding: 1.25rem;
-  border: 1px solid #5e4db2;
+  border: 1px solid #745bee;
   border-radius: 12px;
   font-size: 1.1rem;
   font-family: monospace;
@@ -101,7 +101,7 @@ textarea:focus {
   font-weight: 600;
   transition: width 0.4s ease;
   border-radius: 10px;
-  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  background: linear-gradient(90deg, #b561fe, #7e3dff);
 }
 
 /* Skill list */
