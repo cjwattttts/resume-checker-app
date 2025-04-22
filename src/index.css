@@ -9,8 +9,8 @@
 /* I want the app to feel like a modern dashboard or game interface */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #1e1f23; /* dark gray for immersive look */
-  color: #ffffff; /* white text for contrast */
+  background-color: #1e1f23; /* deep gray backdrop */
+  color: #ffffff; /* white main text */
   line-height: 1.6;
   padding: 2rem;
   display: flex;
@@ -18,7 +18,6 @@ body {
 }
 
 /* Gradient title to make the app feel more dynamic */
-/* Give the title bold energy like a game splash screen */
 h1 {
   font-size: 2.7rem;
   font-weight: 700;
@@ -29,29 +28,27 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
-/* Subtitle styling to match the theme */
-/* Center and tone down the subtitle under the heading */
+/* Subtitle styling */
 p {
   text-align: center;
-  color: #cccccc;
+  color: #bfb0ff;
   font-size: 1.15rem;
   margin-bottom: 2rem;
 }
 
-/* Keep links looking clean and subtle */
+/* Default link style */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Center and modernize app layout with dark mode visuals */
-/* This is the main dashboard container like a game UI panel */
+/* App container styling */
 .container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 2.5rem;
-  background-color: #2b2c31; /* card-like darker background */
+  background-color: #2b2c31;
   border-radius: 20px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -60,32 +57,31 @@ a {
   gap: 2rem;
 }
 
-/* Resume input box should feel like a terminal or code editor */
-/* Make it wide, readable, and dark-themed */
+/* Resume textarea */
+/* Make it fully wide on load to prevent centering issues */
 textarea {
   width: 100%;
+  min-width: 1000px;
   max-width: 1200px;
   min-height: 350px;
   padding: 1.25rem;
-  border: 1px solid #444;
+  border: 1px solid #5e4db2;
   border-radius: 12px;
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #f0f0f0;
+  color: #e0d9ff;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
 }
 
-/* Add color pop on focus to feel responsive */
 textarea:focus {
   outline: none;
   border-color: #8e2de2;
   background-color: #23242a;
 }
 
-/* Score bar visuals */
-/* I want the score bar to stand out like a power meter in a game */
+/* Score bar container */
 .score-bar-container {
   background-color: #3c3d43;
   border-radius: 10px;
@@ -96,18 +92,19 @@ textarea:focus {
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Fill with animated progress effect */
+/* Score bar fill (purple gradient) */
 .score-bar-fill {
   height: 100%;
   text-align: center;
   line-height: 30px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   transition: width 0.4s ease;
   border-radius: 10px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
 }
 
-/* Style lists with a cleaner, more visual look */
+/* Skill list */
 ul {
   list-style: none;
   padding-left: 0;
@@ -122,41 +119,52 @@ li::before {
   content: "• ";
   font-weight: bold;
   margin-right: 0.5rem;
-  color: #888;
+  color: #8e2de2;
 }
 
-/* Highlight matched skills in neon green */
 .matched-skill {
-  color: #00f5a0;
+  color: #a386ff;
   font-weight: bold;
 }
 
-/* Highlight missing skills in soft red */
 .missing-skill {
-  color: #ff6b6b;
+  color: #9457eb;
 }
 
-/* Make the warning box look like an alert or mission prompt */
+/* Warnings box */
 .warning-box {
-  background-color: #3a3333;
-  border-left: 6px solid #ffbe76;
+  background-color: #372d46;
+  border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #fff1dc;
+  color: #dccdfc;
   margin-top: 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
-/* Footer matches theme, but subtle */
+/* Gamified stats panel (badges box) */
+/* Match the rest of the theme and remove old white background */
+.gamified-stats {
+  background-color: #2e2640;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  color: #d8c8ff;
+}
+
+/* Footer */
 footer {
   margin-top: 4rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #888;
+  color: #999;
 }
 
-/* Responsive layout for mobile support */
+/* Responsive tweaks */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
@@ -168,6 +176,6 @@ footer {
 
   textarea {
     font-size: 1rem;
-    min-height: 280px;
+    min-width: 100%;
   }
 }
