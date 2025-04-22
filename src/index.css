@@ -16,6 +16,7 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: center;
+  overflow-x: hidden; /* avoid horizontal scroll */
 }
 
 /* Gradient title to make the app feel more dynamic */
@@ -33,20 +34,19 @@ h1 {
 /* Make sure all non-h1 text has high contrast white */
 p {
   text-align: center;
-  color: #ffffff; /* fixed: was too dark (#271a61) */
+  color: #ffffff;
   font-size: 1.15rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem; /* slightly smaller gap below title */
 }
 
 /* Default link style */
-/* Links should blend with the theme and not have underline */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* App container styling */
-/* This is the main white panel where all the resume tools live */
+/* This wraps everything inside a centered panel */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -59,14 +59,15 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  overflow-x: hidden; /* prevent container from growing sideways */
+  word-break: break-word; /* break long strings inside */
 }
 
 /* Resume textarea */
-/* Make it fully wide on load to prevent centering issues */
+/* Make it wide and responsive without forcing the whole page to stretch */
 textarea {
   width: 100%;
-  max-width: 100%; /* prevent expanding wider than container */
-  min-width: 0; /* remove forced min width that breaks layout */
+  max-width: 1200px;
   min-height: 350px;
   padding: 1.25rem;
   border: 3px solid #a65cfa;
@@ -74,14 +75,12 @@ textarea {
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #430465;
+  color: #ffffff;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
-  overflow-wrap: break-word; /* wrap long words */
-  word-break: break-word;    /* prevent text from pushing width */
-  white-space: pre-wrap;     /* keep formatting but allow line wrap */
+  white-space: pre-wrap;       /* force wrapping of pasted long lines */
+  overflow-wrap: break-word;   /* wrap words that are too long */
 }
-
 
 /* Add glowing border when user clicks into textarea */
 textarea:focus {
@@ -103,7 +102,7 @@ textarea:focus {
 }
 
 /* Score bar fill (purple gradient) */
-/* this fills the XP bar based on percentage */
+/* fills based on how many skills were matched */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -116,7 +115,7 @@ textarea:focus {
 }
 
 /* Skill list */
-/* used to show matched/missing skill sections */
+/* Shows matched vs missing */
 ul {
   list-style: none;
   padding-left: 0;
@@ -127,7 +126,7 @@ li {
   font-size: 1.05rem;
 }
 
-/* Custom bullet dot to match the theme */
+/* Purple bullets to match the theme */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -137,13 +136,13 @@ li::before {
 
 /* Skills that were found in the resume */
 .matched-skill {
-  color: #cbb8ff; /* more legible lavender than before */
+  color: #cbb8ff;
   font-weight: bold;
 }
 
 /* Skills that are missing from resume */
 .missing-skill {
-  color: #a87dfd; /* soft purple, not red */
+  color: #a87dfd;
 }
 
 /* Warnings box */
@@ -153,14 +152,13 @@ li::before {
   border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #ffffff; /* fixed: was #dccdfc, now clearer */
+  color: #ffffff;
   margin-top: 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
 /* Gamified stats panel (badges box) */
-/* Match the rest of the theme and remove old white background */
 .gamified-stats {
   background-color: #2e2640;
   padding: 1.5rem;
@@ -169,11 +167,10 @@ li::before {
   max-width: 1200px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  color: #ffffff; /* fixed: was #d8c8ff, now stronger contrast */
+  color: #ffffff;
 }
 
 /* Footer */
-/* Keep this minimal and soft but readable */
 footer {
   margin-top: 4rem;
   text-align: center;
@@ -181,8 +178,7 @@ footer {
   color: #999;
 }
 
-/* Responsive tweaks */
-/* make layout mobile friendly without breaking components */
+/* Responsive layout */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
@@ -194,6 +190,6 @@ footer {
 
   textarea {
     font-size: 1rem;
-    min-width: 100%;
+    max-width: 100%;
   }
 }
