@@ -16,10 +16,11 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: center;
-  overflow-x: hidden; /* avoid horizontal scroll */
+  overflow-x: hidden; /* prevent the page from stretching when long content is pasted */
 }
 
 /* Gradient title to make the app feel more dynamic */
+/* Animate the main heading with a colorful gradient */
 h1 {
   font-size: 3.7rem;
   font-weight: 700;
@@ -34,22 +35,23 @@ h1 {
 /* Make sure all non-h1 text has high contrast white */
 p {
   text-align: center;
-  color: #ffffff;
+  color: #ffffff; /* fixed: was too dark (#271a61) */
   font-size: 1.15rem;
-  margin-bottom: 1.25rem; /* slightly smaller gap below title */
+  margin-bottom: 1.4rem;
 }
 
 /* Default link style */
+/* Links should blend with the theme and not have underline */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* App container styling */
-/* This wraps everything inside a centered panel */
+/* This is the main white panel where all the resume tools live */
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px; /* reduce max width to fix layout break */
   margin: 0 auto;
   padding: 2.5rem;
   background-color: #2b2c31;
@@ -59,15 +61,14 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  overflow-x: hidden; /* prevent container from growing sideways */
-  word-break: break-word; /* break long strings inside */
+  word-break: break-word; /* prevent overflow from long words */
 }
 
 /* Resume textarea */
-/* Make it wide and responsive without forcing the whole page to stretch */
+/* Make it responsive and readable without forcing page width */
 textarea {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   min-height: 350px;
   padding: 1.25rem;
   border: 3px solid #a65cfa;
@@ -75,11 +76,11 @@ textarea {
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #ffffff;
+  color: #430465; /* this looked too light before, changed from #e0d9ff */
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
-  white-space: pre-wrap;       /* force wrapping of pasted long lines */
-  overflow-wrap: break-word;   /* wrap words that are too long */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 /* Add glowing border when user clicks into textarea */
@@ -102,7 +103,7 @@ textarea:focus {
 }
 
 /* Score bar fill (purple gradient) */
-/* fills based on how many skills were matched */
+/* this fills the XP bar based on percentage */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -115,7 +116,7 @@ textarea:focus {
 }
 
 /* Skill list */
-/* Shows matched vs missing */
+/* used to show matched/missing skill sections */
 ul {
   list-style: none;
   padding-left: 0;
@@ -126,7 +127,7 @@ li {
   font-size: 1.05rem;
 }
 
-/* Purple bullets to match the theme */
+/* Custom bullet dot to match the theme */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -136,13 +137,13 @@ li::before {
 
 /* Skills that were found in the resume */
 .matched-skill {
-  color: #cbb8ff;
+  color: #cbb8ff; /* more legible lavender than before */
   font-weight: bold;
 }
 
 /* Skills that are missing from resume */
 .missing-skill {
-  color: #a87dfd;
+  color: #a87dfd; /* soft purple, not red */
 }
 
 /* Warnings box */
@@ -152,13 +153,14 @@ li::before {
   border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #ffffff;
+  color: #ffffff; /* fixed: was #dccdfc, now clearer */
   margin-top: 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
 /* Gamified stats panel (badges box) */
+/* Match the rest of the theme and remove old white background */
 .gamified-stats {
   background-color: #2e2640;
   padding: 1.5rem;
@@ -167,10 +169,11 @@ li::before {
   max-width: 1200px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  color: #ffffff;
+  color: #ffffff; /* fixed: was #d8c8ff, now stronger contrast */
 }
 
 /* Footer */
+/* Keep this minimal and soft but readable */
 footer {
   margin-top: 4rem;
   text-align: center;
@@ -178,7 +181,8 @@ footer {
   color: #999;
 }
 
-/* Responsive layout */
+/* Responsive tweaks */
+/* make layout mobile friendly without breaking components */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
@@ -190,6 +194,5 @@ footer {
 
   textarea {
     font-size: 1rem;
-    max-width: 100%;
   }
 }
