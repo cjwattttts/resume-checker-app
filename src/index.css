@@ -1,5 +1,5 @@
+/* Reset and base styles for all elements */
 /* Clean up any default browser styling */
-/* Reset box sizing and remove margins/padding from all elements */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,11 +7,11 @@
 }
 
 /* Set a dark background for game-style theme */
-/* Make this feel like a dark dashboard you'd see in a game */
+/* I want the app to feel like a modern dashboard or game interface */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #1e1f23; /* really dark gray base */
-  color: #ffffff;
+  background-color: #1e1f23; /* deep gray backdrop */
+  color: #ffffff; /* white main text */
   line-height: 1.6;
   padding: 2rem;
   display: flex;
@@ -19,7 +19,6 @@ body {
 }
 
 /* Gradient title to make the app feel more dynamic */
-/* I want the main title to pop with a bright purple/blue gradient */
 h1 {
   font-size: 2.7rem;
   font-weight: 700;
@@ -27,28 +26,27 @@ h1 {
   background: linear-gradient(90deg, #b561fe 0%, #7e3dff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.2rem;
-  animation: fadeInTitle 1.2s ease-in-out;
+  margin-bottom: 0.2rem; /* tighten space under title */
 }
 
 /* Subtitle styling */
-/* Move this closer to title and keep it bright for better visual flow */
+/* move this text closer to the h1 so the intro looks unified */
 p {
   text-align: center;
-  color: #ffffff;
+  color: #ffffff; /* fixed: was too dark (#271a61) */
   font-size: 1.15rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem; /* reduced spacing for coherence */
 }
 
-/* Link styles */
-/* Make sure links blend with our white text theme */
+/* Default link style */
+/* Links should blend with the theme and not have underline */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* App container styling */
-/* Main panel that wraps everything; dark card with soft edges */
+/* This is the main white panel where all the resume tools live */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -64,7 +62,7 @@ a {
 }
 
 /* Resume textarea */
-/* Make this full width and more like a terminal/code editor */
+/* Make it fully wide on load to prevent centering issues */
 textarea {
   width: 100%;
   min-width: 1000px;
@@ -76,21 +74,20 @@ textarea {
   font-size: 1.1rem;
   font-family: monospace;
   background-color: #1c1d22;
-  color: #ffffff;
+  color: #ffffff; /* this looked too light before, changed from #e0d9ff */
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
 }
 
-/* Resume input glow */
-/* I want a light purple glow when the resume box is active */
+/* Add glowing border when user clicks into textarea */
 textarea:focus {
   outline: none;
   border-color: #8e2de2;
   background-color: #23242a;
 }
 
-/* XP/Score bar container */
-/* Dark base for animated XP bar */
+/* Score bar container */
+/* XP bar background */
 .score-bar-container {
   background-color: #3c3d43;
   border-radius: 10px;
@@ -101,8 +98,8 @@ textarea:focus {
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* XP bar fill */
-/* This shows XP % with a gradient and glow on level-up */
+/* Score bar fill (purple gradient) */
+/* this fills the XP bar based on percentage */
 .score-bar-fill {
   height: 100%;
   text-align: center;
@@ -114,14 +111,8 @@ textarea:focus {
   background: linear-gradient(90deg, #b561fe, #7e3dff);
 }
 
-/* Add XP glow when leveling up */
-/* Create glow effect when XP bar hits 100% */
-.glow-border {
-  box-shadow: 0 0 12px #b561fe, 0 0 24px #7e3dff;
-}
-
-/* Skill list styles */
-/* Show matched/missing skills clearly */
+/* Skill list */
+/* used to show matched/missing skill sections */
 ul {
   list-style: none;
   padding-left: 0;
@@ -132,7 +123,7 @@ li {
   font-size: 1.05rem;
 }
 
-/* Purple bullets on skill list */
+/* Custom bullet dot to match the theme */
 li::before {
   content: "• ";
   font-weight: bold;
@@ -140,32 +131,32 @@ li::before {
   color: #8e2de2;
 }
 
-/* Found skills */
+/* Skills that were found in the resume */
 .matched-skill {
-  color: #cbb8ff;
+  color: #cbb8ff; /* more legible lavender than before */
   font-weight: bold;
 }
 
-/* Skills not found */
+/* Skills that are missing from resume */
 .missing-skill {
-  color: #a87dfd;
+  color: #a87dfd; /* soft purple, not red */
 }
 
-/* Warning messages for filler phrases */
-/* Add mission-style alert box */
+/* Warnings box */
+/* Highlight vague buzzwords or filler phrases */
 .warning-box {
   background-color: #372d46;
   border-left: 6px solid #8e2de2;
   padding: 1.25rem;
   border-radius: 10px;
-  color: #ffffff;
+  color: #ffffff; /* fixed: was #dccdfc, now clearer */
   margin-top: 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
-/* Gamified Stats Panel */
-/* Purple theme and glowy badges */
+/* Gamified stats panel (badges box) */
+/* Match the rest of the theme and remove old white background */
 .gamified-stats {
   background-color: #2e2640;
   padding: 1.5rem;
@@ -174,33 +165,7 @@ li::before {
   max-width: 1200px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  color: #ffffff;
-}
-
-/* Badge container */
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  margin-top: 0.75rem;
-}
-
-/* Badge icons styled like power-ups */
-.badge-icon {
-  background-color: #3a2d5c;
-  color: #f4eaff;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: 2px solid #8e2de2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-
-.badge-icon:hover {
-  transform: scale(1.1);
+  color: #ffffff; /* fixed: was #d8c8ff, now stronger contrast */
 }
 
 /* Footer */
@@ -212,20 +177,8 @@ footer {
   color: #999;
 }
 
-/* Animate the title on load */
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive layout tweaks */
-/* Make sure layout doesn’t break on small screens */
+/* Responsive tweaks */
+/* make layout mobile friendly without breaking components */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
