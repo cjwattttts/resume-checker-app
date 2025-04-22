@@ -131,3 +131,59 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+/* Centered title */
+.app-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #264653;
+  margin-bottom: 0.5rem;
+}
+
+/* Dark mode */
+.dark {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+.dark textarea {
+  background-color: #2e2e2e;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+.dark .matched-skill {
+  color: #80ffcc;
+}
+
+.dark .missing-skill {
+  color: #ff9999;
+}
+
+.dark .warning-box {
+  background-color: #3a3a3a;
+  border-left: 6px solid #ffa;
+  color: #f7f7c6;
+}
+
+/* Print styling */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .app-title,
+  .container,
+  textarea,
+  button,
+  select {
+    page-break-inside: avoid;
+  }
+
+  button,
+  .ThemeToggle,
+  .warning-box {
+    display: none !important;
+  }
+}
