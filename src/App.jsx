@@ -1,40 +1,45 @@
-// I want to create the main App component for my resume analyzer
-// This should render the full layout of the tool with all the key features
+// I want to build the full resume analyzer layout
+// Include resume input, score components, and new gamified stats box
 
 import React, { useState } from 'react';
-
-// Add imports for the components that handle input and feedback
 import ResumeInputArea from './ResumeInputArea';
 import MatchScoreIndicator from './MatchScoreIndicator';
 import KeywordInsight from './KeywordInsight';
 import ContentWarnings from './ContentWarnings';
+import ResumeSummary from './ResumeSummary';
+import GamifiedStats from './GamifiedStats';
 
 function App() {
-  // Set up state to store the resume text input from the user
+  // Store the user's pasted resume text
   const [resumeText, setResumeText] = useState('');
 
   return (
-    // Wrap everything in a container to center and style the layout
+    // Layout container with title, tools, and feedback panels
     <div className="container">
-      {/* Title and description for the tool */}
       <h1 style={{ color: '#264653' }}>Business Analyst Resume Analyzer</h1>
-      <p style={{ color: '#6c757d', marginBottom: '1.5rem' }}>
-        Evaluate your resume against key Business Analyst competencies.
+      <p style={{ color: '#6c757d', marginBottom: '1.5rem', textAlign: 'center' }}>
+        Evaluate and improve your resume with instant insights and gamified feedback.
       </p>
 
-      {/* Input box for the resume text */}
+      {/* Text input for the resume */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
-      {/* Show a score bar based on how many keywords are matched */}
+      {/* Progress bar for skill match percentage */}
       <MatchScoreIndicator resumeText={resumeText} />
 
-      {/* List matched and missing skills */}
+      {/* Show skills that are matched and missing */}
       <KeywordInsight resumeText={resumeText} />
 
-      {/* Show any vague phrases or filler words that should be fixed */}
+      {/* Show vague words and filler phrases if found */}
       <ContentWarnings resumeText={resumeText} />
 
-      {/* Basic footer with my name and info */}
+      {/* Display a summary sentence and let the user copy it */}
+      <ResumeSummary resumeText={resumeText} />
+
+      {/* New: Display XP, level, and badges earned */}
+      <GamifiedStats resumeText={resumeText} />
+
+      {/* Footer branding */}
       <footer style={{ marginTop: '4rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
