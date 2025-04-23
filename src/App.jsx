@@ -8,16 +8,14 @@ import KeywordInsight from './KeywordInsight';
 import ContentWarnings from './ContentWarnings';
 import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
-import upwordLogo from './photos/upword.png'; // Import the logo image
+import upwordLogo from './photos/upword.png';
 
 function App() {
-  // Store the user's pasted resume text
   const [resumeText, setResumeText] = useState('');
 
   return (
-    // Layout container with title, tools, and feedback panels
     <div className="container">
-      {/* Replace title with logo */}
+      {/* Logo */}
       <img
         src={upwordLogo}
         alt="Upword Logo"
@@ -30,30 +28,30 @@ function App() {
         }}
       />
 
-      {/* Subtitle text under logo */}
+      {/* Subtitle */}
       <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
         Evaluate and improve your resume with instant insights and gamified feedback.
       </p>
 
-      {/* Text input for the resume */}
+      {/* Resume input */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
+
+      {/* Gamified stats moved here */}
+      <GamifiedStats resumeText={resumeText} />
 
       {/* Progress bar for skill match percentage */}
       <MatchScoreIndicator resumeText={resumeText} />
 
-      {/* Show skills that are matched and missing */}
+      {/* Skills matched/missing */}
       <KeywordInsight resumeText={resumeText} />
 
-      {/* Show vague words and filler phrases if found */}
+      {/* Content warnings */}
       <ContentWarnings resumeText={resumeText} />
 
-      {/* Display a summary sentence and let the user copy it */}
+      {/* Resume summary */}
       <ResumeSummary resumeText={resumeText} />
 
-      {/* New: Display XP, level, and badges earned */}
-      <GamifiedStats resumeText={resumeText} />
-
-      {/* Footer branding */}
+      {/* Footer */}
       <footer style={{ marginTop: '4rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
@@ -62,4 +60,3 @@ function App() {
 }
 
 export default App;
-
