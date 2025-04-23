@@ -46,8 +46,8 @@ a {
 
 /* App container styling */
 .container {
-  width: 100%;
-  max-width: 1200px; /* wider container */
+  max-width: 1200px;
+  min-width: 320px;           /* prevents collapse on small devices */
   margin: 0 auto;
   padding: 2.5rem;
   background-color: #2b2c31;
@@ -58,7 +58,8 @@ a {
   align-items: center;
   gap: 2rem;
   word-break: break-word;
-  overflow: hidden; /* changed from overflow-x to avoid scroll */
+  overflow-wrap: break-word;
+  overflow-x: auto;           /* lets long pasted lines scroll instead of expanding the page */
 }
 
 /* Resume textarea */
@@ -198,6 +199,12 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #999;
+}
+
+/* Force breaking of long words in all paragraphs and list items */
+p, li {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Responsive layout */
