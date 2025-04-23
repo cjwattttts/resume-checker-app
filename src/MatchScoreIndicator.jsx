@@ -30,20 +30,39 @@ function MatchScoreIndicator({ resumeText }) {
       </h3>
 
       {/* Full-width progress bar container */}
-      <div className="score-bar-container" style={{ width: '100%', maxWidth: '100%' }}>
-        {/* Inner bar shows percentage and changes color based on match strength */}
-        <div
-          className="score-bar-fill"
-          style={{
-            width: `${percent}%`,
-            backgroundColor: color,
-            textAlign: 'center'
-          }}
-        >
-          {percent}%
-        </div>
+      <div className="score-bar-container" style={{ position: 'relative' }}>
+  <div
+    className="score-bar-fill"
+    style={{
+      width: `${score}%`,
+      height: '100%',
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      zIndex: 1,
+    }}
+  />
+  <span
+    className="score-bar-label"
+    style={{
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 2,
+      fontWeight: 700,
+      color: '#fff',
+      pointerEvents: 'none',
+    }}
+  >
+    {score}%
+  </span>
+</div>
       </div>
-    </div>
   );
 }
 
