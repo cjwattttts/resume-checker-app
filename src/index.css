@@ -46,8 +46,8 @@ a {
 
 /* App container styling */
 .container {
-  width: 200%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 2.5rem;
   background-color: #2b2c31;
