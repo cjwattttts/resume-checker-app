@@ -64,19 +64,19 @@ function App() {
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
       {/* Gamified stats */}
-      <GamifiedStats resumeText={resumeText} />
+      <GamifiedStats resumeText={resumeText} profession={profession} />
 
       {/* Progress bar for skill match percentage */}
-      <MatchScoreIndicator resumeText={resumeText} />
+      <MatchScoreIndicator resumeText={resumeText} profession={profession} />
 
       {/* Skills matched/missing */}
-      <KeywordInsight resumeText={resumeText} />
+      <KeywordInsight resumeText={resumeText} profession={profession} />
 
       {/* Content warnings */}
-      <ContentWarnings resumeText={resumeText} />
+      <ContentWarnings resumeText={resumeText} profession={profession} />
 
       {/* Resume summary */}
-      <ResumeSummary resumeText={resumeText} />
+      <ResumeSummary resumeText={resumeText} profession={profession} />
 
       {/* Footer */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
