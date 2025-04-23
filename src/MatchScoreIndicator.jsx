@@ -23,25 +23,61 @@ function MatchScoreIndicator({ resumeText }) {
   const color = percent >= 80 ? '#2a9d8f' : percent >= 50 ? '#f4a261' : '#e76f51';
 
   return (
-    // Show a header and animated score bar
     <div style={{ marginTop: '2rem', width: '100%', maxWidth: '100%' }}>
-      <h3 style={{ marginBottom: '0.5rem', textAlign: 'center', color: '#ffffff' }}>
+      <h3 className="resume-match-score-title" style={{ marginBottom: '0.5rem', textAlign: 'center', color: '#ffffff' }}>
         Resume Match Score
       </h3>
 
-      {/* Full-width progress bar container */}
-      <div className="score-bar-container" style={{ width: '100%', maxWidth: '100%' }}>
-        {/* Inner bar shows percentage and changes color based on match strength */}
+      {/* Centered progress bar with centered percentage */}
+      <div className="score-bar-container" style={{ position: 'relative', maxWidth: '400px', width: '100%', margin: '0 auto' }}>
+        {/* Filled bar */}
         <div
           className="score-bar-fill"
           style={{
             width: `${percent}%`,
             backgroundColor: color,
-            textAlign: 'center'
+            height: '100%',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            zIndex: 1,
+            transition: 'width 0.4s ease'
+          }}
+        />
+        {/* Centered percentage label */}
+        <span
+          className="score-bar-label"
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 2,
+            fontWeight: 700,
+            color: '#fff',
+            pointerEvents: 'none',
+            fontSize: '1.2rem'
           }}
         >
           {percent}%
-        </div>
+        </span>
+        {/* Empty bar background for visibility */}
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: '#3c3d43',
+            borderRadius: '10px',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            zIndex: 0
+          }}
+        />
       </div>
     </div>
   );
