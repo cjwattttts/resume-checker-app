@@ -1,3 +1,6 @@
+// I want to build the full resume analyzer layout
+// Include resume input, score components, and new gamified stats box
+
 import React, { useState } from 'react';
 import ResumeInputArea from './ResumeInputArea';
 import MatchScoreIndicator from './MatchScoreIndicator';
@@ -6,74 +9,70 @@ import ContentWarnings from './ContentWarnings';
 import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
 import upwordLogo from './photos/upword.png';
-import mountainPhoto from './photos/mountain.png';
+import mountainPhoto from './photos/mountain.png'; // Make sure this path matches your file
 
 function App() {
   const [resumeText, setResumeText] = useState('');
 
   return (
-    <>
-      <div className="container">
-        {/* Logo */}
-        <img
-          src={upwordLogo}
-          alt="Upword Logo"
-          style={{
-            height: '210px',
-            marginBottom: '0.5rem',
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}
-        />
+    <div className="container">
+      {/* Logo */}
+      <img
+        src={upwordLogo}
+        alt="Upword Logo"
+        style={{
+          height: '210px',
+          marginBottom: '0.5rem',
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}
+      />
 
-        {/* Subtitle */}
-        <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
-          Evaluate and improve your resume with instant insights and gamified feedback.
-        </p>
+      {/* Subtitle */}
+      <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
+        Evaluate and improve your resume with instant insights and gamified feedback.
+      </p>
 
-        {/* Resume input */}
-        <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
+      {/* Resume input */}
+      <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
-        {/* Gamified stats */}
-        <GamifiedStats resumeText={resumeText} />
+      {/* Gamified stats */}
+      <GamifiedStats resumeText={resumeText} />
 
-        {/* Progress bar for skill match percentage */}
-        <MatchScoreIndicator resumeText={resumeText} />
+      {/* Progress bar for skill match percentage */}
+      <MatchScoreIndicator resumeText={resumeText} />
 
-        {/* Skills matched/missing */}
-        <KeywordInsight resumeText={resumeText} />
+      {/* Skills matched/missing */}
+      <KeywordInsight resumeText={resumeText} />
 
-        {/* Content warnings */}
-        <ContentWarnings resumeText={resumeText} />
+      {/* Content warnings */}
+      <ContentWarnings resumeText={resumeText} />
 
-        {/* Resume summary */}
-        <ResumeSummary resumeText={resumeText} />
+      {/* Resume summary */}
+      <ResumeSummary resumeText={resumeText} />
 
-        {/* Mountain photo at the very bottom, inside the container */}
-        <img
-  src={mountainPhoto}
-  alt="Mountain"
-  style={{
-    display: 'block',
-    width: '100%',
-    maxWidth: '100%',
-    height: '400px',
-    objectFit: 'cover',
-    objectPosition: 'bottom', // Ensures the base is at the bottom edge
-    borderRadius: 0,
-    margin: 0,
-    boxShadow: 'none',
-    padding: 0
-  }}
+      {/* Mountain photo at the bottom */}
+      <img
+src={mountainPhoto}
+alt="Mountain"
+style={{
+display: 'block',
+width: '100%',
+maxWidth: '100%',
+height: '400px',
+objectFit: 'cover',
+borderRadius: 0,
+margin: 0,
+boxShadow: 'none'
+}}
 />
-      </div>
 
-      {/* Footer outside the container */}
+      {/* Footer */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
-    </>
+    </div>
   );
 }
 
