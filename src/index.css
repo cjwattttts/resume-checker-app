@@ -61,7 +61,9 @@ a {
   align-items: center;
   gap: 2rem;
   overflow: hidden;
-  /* Remove word-break, overflow-wrap, white-space from here! */
+  /* Add these lines: */
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Resume textarea */
@@ -83,6 +85,8 @@ textarea {
   word-break: break-word;
   overflow-wrap: break-word;
   resize: vertical;
+  /* Add this line: */
+  overflow-x: auto;
 }
 
 /* Textarea focus state */
