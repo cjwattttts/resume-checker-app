@@ -22,41 +22,32 @@ function KeywordInsight({ resumeText }) {
   );
 
   return (
-    // Use flex layout to show matched vs missing skills side by side
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        gap: '2rem',
-        marginTop: '2rem',
-        flexWrap: 'wrap'
-      }}
-    >
+    <div className="skills-list-container" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
       {/* Matched skills section */}
-      <div style={{
-        flex: '1 1 45%',
-        minWidth: '300px',
-        wordWrap: 'break-word'
-      }}>
-        <h3 style={{ color: '#ffffff' }}>Skills Detected</h3>
-        <ul>
-          {matched.map((skill, i) => (
-            <li key={i} className="matched-skill">{skill}</li>
-          ))}
+      <div style={{ flex: '1 1 45%', minWidth: '300px' }}>
+        <div className="skills-section-title">Skills Detected</div>
+        <ul className="skills-list">
+          {matched.length > 0 ? (
+            matched.map((skill, i) => (
+              <li key={i} className="matched-skill">{skill}</li>
+            ))
+          ) : (
+            <li style={{ color: '#bbb' }}>None detected</li>
+          )}
         </ul>
       </div>
 
       {/* Missing skills section */}
-      <div style={{
-        flex: '1 1 45%',
-        minWidth: '300px',
-        wordWrap: 'break-word'
-      }}>
-        <h3 style={{ color: '#ffffff' }}>Skills Not Found</h3>
-        <ul>
-          {missing.map((skill, i) => (
-            <li key={i} className="missing-skill">{skill}</li>
-          ))}
+      <div style={{ flex: '1 1 45%', minWidth: '300px' }}>
+        <div className="skills-section-title">Skills Not Found</div>
+        <ul className="skills-list">
+          {missing.length > 0 ? (
+            missing.map((skill, i) => (
+              <li key={i} className="missing-skill">{skill}</li>
+            ))
+          ) : (
+            <li style={{ color: '#bbb' }}>All detected!</li>
+          )}
         </ul>
       </div>
     </div>
