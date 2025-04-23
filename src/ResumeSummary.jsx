@@ -8,7 +8,7 @@ function ResumeSummary({ resumeText }) {
   const baSkills = [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Business Requirements', 'Stakeholders', 'Process Mapping'
+    'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
   ];
 
   // Filter the skills that are actually found in the resume text
