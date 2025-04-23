@@ -26,11 +26,12 @@ function ResumeSummary({ resumeText }) {
 
   return (
     <div style={{ 
-      marginTop: '2rem', 
-      borderTop: '1px solid #eee', 
-      paddingTop: '1rem', 
-      textAlign: 'center'
-    }} className="resume-summary">
+        marginTop: '2rem', 
+        borderTop: '1px solid #eee', 
+        width: '100%',              // Full width
+        paddingTop: '1rem', 
+        textAlign: 'center'
+      }} className="resume-summary">
       <h3 className="resume-summary-title">Resume Summary</h3>
       <p>{summary}</p>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}>
