@@ -22,7 +22,7 @@ function ResumeInputArea({ resumeText, setResumeText }) {
         htmlFor="resumeInput"
         style={{
           fontWeight: 'bold',
-          fontSize: '1.1rem',
+          fontSize: '1.7rem',
           marginBottom: '0.75rem',
           textAlign: 'center',
           color: '#ffffff'
