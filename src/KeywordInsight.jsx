@@ -23,8 +23,8 @@ function KeywordInsight({ resumeText }) {
 
   return (
     // Use flexbox to show the two lists side by side
-    <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-      {/* Matched skills list */}
+  <div style={{ display: 'flex', gap: '4rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+    {/* Matched skills list */}
       <div style={{ flex: 1 }}>
         <h3 style={{ color: '#ffffff' }}>Skills Detected</h3>
         <ul>
