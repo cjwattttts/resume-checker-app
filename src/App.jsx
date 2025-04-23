@@ -53,23 +53,6 @@ function App() {
         {/* Resume summary */}
         <ResumeSummary resumeText={resumeText} />
 
-        {/* Mountain photo at the very bottom, inside the container */}
-        <img
-          src={mountainPhoto}
-          alt="Mountain"
-          style={{
-            display: 'block',
-            width: '100%',
-            maxWidth: '100%',
-            height: '400px',
-            objectFit: 'cover',
-            borderRadius: 0,
-            margin: 0,
-            boxShadow: 'none'
-          }}
-        />
-      </div>
-
       {/* Footer outside the container */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
