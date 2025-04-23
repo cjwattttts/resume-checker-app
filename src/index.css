@@ -110,7 +110,11 @@ textarea:focus {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+  /* Purple glow gradient shadow */
+  box-shadow:
+    0 0 16px 2px #b561fe,
+    0 0 32px 4px #7e3dff,
+    inset 0 2px 4px rgba(142, 45, 226, 0.25);
 }
 
 /* Score bar fill */
