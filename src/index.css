@@ -46,7 +46,7 @@ a {
 
 /* App container styling */
 .container {
-  width: 100%;
+  width: 200%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 2.5rem;
