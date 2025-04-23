@@ -76,22 +76,25 @@ setSummary(summaryText);
       </p>
 
       {/* XP bar */}
-      <div style={{
-        backgroundColor: '#3a3356',
-        borderRadius: '10px',
-        height: '24px',
-        width: '80%',
-        margin: '10px auto',
-        overflow: 'hidden'
-      }}>
-        <div className={`score-bar-fill ${glowClass}`} style={{
-          width: `${(xpProgress / 50) * 100}%`,
-          height: '100%',
-          transition: 'width 0.4s ease'
-        }} />
-      </div>
-
-      {/* Badges */}
+      <div
+        style={{
+          backgroundColor: '#3a3356',
+          borderRadius: '10px',
+          height: '24px',
+          width: '80%',
+          margin: '10px auto',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          className={`score-bar-fill ${glowClass}`}
+          style={{
+            width: xpProgress === 0 && xp > 0 ? '100%' : `${(xpProgress / 50) * 100}%`,
+            height: '100%',
+            transition: 'width 0.4s ease',
+          }}
+        />
+      </div>}
       <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', color: '#ffffff' }}>
         <strong>Badges:</strong>
       </p>
