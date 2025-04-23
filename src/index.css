@@ -155,7 +155,7 @@ li::before {
 
 /* Gamified stats */
 .gamified-stats {
-  background-color: #b561fe;
+  background: linear-gradient(90deg, #6e389d 0%, #5314d1 100%);
   padding: 1.5rem;
   border-radius: 12px;
   width: 100%;
