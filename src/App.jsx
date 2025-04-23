@@ -1,6 +1,3 @@
-// I want to build the full resume analyzer layout
-// Include resume input, score components, and new gamified stats box
-
 import React, { useState } from 'react';
 import ResumeInputArea from './ResumeInputArea';
 import MatchScoreIndicator from './MatchScoreIndicator';
@@ -9,7 +6,7 @@ import ContentWarnings from './ContentWarnings';
 import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
 import upwordLogo from './photos/upword.png';
-import mountainPhoto from './photos/mountain.png'; // Make sure this path matches your file
+import mountainPhoto from './photos/mountain.png';
 
 function App() {
   const [resumeText, setResumeText] = useState('');
@@ -52,23 +49,23 @@ function App() {
 
         {/* Resume summary */}
         <ResumeSummary resumeText={resumeText} />
-      </div>
 
-      {/* Large mountain photo at the very bottom, outside the container */}
-      <img
-        src={mountainPhoto}
-        alt="Mountain"
-        style={{
-          display: 'block',
-          width: '100vw',
-          maxWidth: '100%',
-          height: '400px',
-          objectFit: 'cover',
-          borderRadius: 0,
-          margin: '0 auto',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.35)'
-        }}
-      />
+        {/* Mountain photo at the very bottom, inside the container */}
+        <img
+          src={mountainPhoto}
+          alt="Mountain"
+          style={{
+            display: 'block',
+            width: '100%',
+            maxWidth: '100%',
+            height: '400px',
+            objectFit: 'cover',
+            borderRadius: 0,
+            margin: 0,
+            boxShadow: 'none'
+          }}
+        />
+      </div>
 
       {/* Footer outside the container */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
