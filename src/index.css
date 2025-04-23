@@ -221,3 +221,10 @@ p, li {
     font-size: 1rem;
   }
 }
+
+/* Fix layout expansion when pasting long text */
+textarea, .container, p, li, div {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
