@@ -3,53 +3,52 @@
 
 import React from 'react';
 
-function KeywordInsight({ resumeText }) {
-  // List of skills a Business Analyst resume should include
-  const baSkills = [
+const professionSkills = {
+  'business-analyst': [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
     'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
-  ];
+  ],
+  'project-manager': [
+    'Project Planning', 'Risk Management', 'Scrum', 'Kanban', 'Budgeting',
+    'Stakeholder Management', 'Scheduling', 'Leadership', 'MS Project',
+    'Communication', 'Resource Allocation', 'Timeline', 'Reporting'
+  ],
+  'data-analyst': [
+    'Python', 'R', 'SQL', 'Excel', 'Tableau', 'Power BI',
+    'Data Cleaning', 'Statistics', 'Visualization', 'Pandas',
+    'Machine Learning', 'Reporting', 'Data Mining'
+  ],
+  'web-developer': [
+    'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'APIs',
+    'Responsive Design', 'Git', 'Webpack', 'Testing',
+    'Accessibility', 'Performance', 'Deployment'
+  ]
+};
 
-  // Check which skills are found in the resume
-  const matched = baSkills.filter(skill =>
+function KeywordInsight({ resumeText, profession }) {
+  const skills = professionSkills[profession] || [];
+  const matched = skills.filter(skill =>
     resumeText.toLowerCase().includes(skill.toLowerCase())
   );
-
-  // Get the skills not mentioned
-  const missing = baSkills.filter(skill =>
+  const missing = skills.filter(skill =>
     !resumeText.toLowerCase().includes(skill.toLowerCase())
   );
 
   return (
-    <div className="skills-list-container" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-      {/* Matched skills section */}
-      <div style={{ flex: '1 1 45%', minWidth: '300px' }}>
-        <div className="skills-section-title">Skills Detected</div>
-        <ul className="skills-list">
-          {matched.length > 0 ? (
-            matched.map((skill, i) => (
-              <li key={i} className="matched-skill">{skill}</li>
-            ))
-          ) : (
-            <li style={{ color: '#bbb' }}>None detected</li>
-          )}
-        </ul>
-      </div>
-
-      {/* Missing skills section */}
-      <div style={{ flex: '1 1 45%', minWidth: '300px' }}>
-        <div className="skills-section-title">Skills Not Found</div>
-        <ul className="skills-list">
-          {missing.length > 0 ? (
-            missing.map((skill, i) => (
-              <li key={i} className="missing-skill">{skill}</li>
-            ))
-          ) : (
-            <li style={{ color: '#bbb' }}>All detected!</li>
-          )}
-        </ul>
-      </div>
+    <div className="skills-list-container">
+      <h3 className="skills-section-title">Skills You Have</h3>
+      <ul className="skills-list">
+        {matched.length > 0 ? matched.map(skill => (
+          <li key={skill} className="matched-skill">{skill}</li>
+        )) : <li style={{ color: '#888' }}>No key skills detected yet.</li>}
+      </ul>
+      <h3 className="skills-section-title" style={{ marginTop: '1.5rem' }}>Skills You’re Missing</h3>
+      <ul className="skills-list">
+        {missing.length > 0 ? missing.map(skill => (
+          <li key={skill} className="missing-skill">{skill}</li>
+        )) : <li style={{ color: '#888' }}>None! You have all the key skills.</li>}
+      </ul>
     </div>
   );
 }

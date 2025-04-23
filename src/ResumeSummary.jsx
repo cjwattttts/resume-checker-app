@@ -1,23 +1,38 @@
 import React from 'react';
 
-function ResumeSummary({ resumeText }) {
-  const baSkills = [
+const professionSkills = {
+  'business-analyst': [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
     'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
-  ];
+  ],
+  'project-manager': [
+    'Project Planning', 'Risk Management', 'Scrum', 'Kanban', 'Budgeting',
+    'Stakeholder Management', 'Scheduling', 'Leadership', 'MS Project',
+    'Communication', 'Resource Allocation', 'Timeline', 'Reporting'
+  ],
+  'data-analyst': [
+    'Python', 'R', 'SQL', 'Excel', 'Tableau', 'Power BI',
+    'Data Cleaning', 'Statistics', 'Visualization', 'Pandas',
+    'Machine Learning', 'Reporting', 'Data Mining'
+  ],
+  'web-developer': [
+    'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'APIs',
+    'Responsive Design', 'Git', 'Webpack', 'Testing',
+    'Accessibility', 'Performance', 'Deployment'
+  ]
+};
 
-  const matched = baSkills.filter(skill =>
+function ResumeSummary({ resumeText, profession }) {
+  const skills = professionSkills[profession] || [];
+  const matched = skills.filter(skill =>
     resumeText.toLowerCase().includes(skill.toLowerCase())
   );
+  const percent = skills.length > 0 ? Math.round((matched.length / skills.length) * 100) : 0;
 
-  const score = Math.round((matched.length / baSkills.length) * 100);
-
-  // Only add core strengths if there are matched skills
-  let summary = `This resume aligns with ${score}% of key Business Analyst skills.`;
-  if (matched.length > 0) {
-    summary += ` Core strengths include: ${matched.join(', ')}.`;
-  }
+  const summary = skills.length
+    ? `Your resume matches ${percent}% of the top ${profession.replace('-', ' ')} skills.`
+    : 'Select a profession to see your resume summary.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(summary);
@@ -25,18 +40,18 @@ function ResumeSummary({ resumeText }) {
   };
 
   return (
-    <div style={{ 
-        marginTop: '2rem', 
-        borderTop: '1px solid #eee', 
-        width: '100%',              // Full width
-        paddingTop: '1rem', 
-        textAlign: 'center'
-      }} className="resume-summary">
+    <div style={{
+      marginTop: '2rem',
+      borderTop: '3px solid #eee',
+      width: '100%',
+      paddingTop: '1rem',
+      textAlign: 'center'
+    }} className="resume-summary">
       <h3 className="resume-summary-title">Resume Summary</h3>
       <p>{summary}</p>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}>
-        <button 
-          onClick={handleCopy} 
+        <button
+          onClick={handleCopy}
           style={{
             padding: '0.5rem 1.2rem',
             backgroundColor: '#ffffff',

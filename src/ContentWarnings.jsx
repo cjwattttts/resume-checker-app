@@ -3,35 +3,30 @@
 
 import React from 'react';
 
-function ContentWarnings({ resumeText }) {
-  // List of overused phrases to flag in resumes
-  const fillerPhrases = [
-    'responsible for', 'team player', 'hardworking', 'detail-oriented',
-    'go-getter', 'works well under pressure', 'self-starter'
-  ];
+const fillerPhrases = [
+  'responsible for', 'team player', 'hardworking', 'detail-oriented',
+  'go-getter', 'works well under pressure', 'self-starter'
+];
 
-  // Check if any of those phrases appear in the resume
-  const found = fillerPhrases.filter(phrase =>
+function ContentWarnings({ resumeText, profession }) {
+  const foundFillers = fillerPhrases.filter(phrase =>
     resumeText.toLowerCase().includes(phrase)
   );
 
-  // If none are found, skip rendering this component
-  if (found.length === 0) return null;
-
   return (
-    // Display a yellow warning box with suggestions
     <div className="warning-box">
-      <h4 style={{ marginBottom: '0.5rem' }}>Soft Warnings</h4>
-      <p>
-        The following vague or overused phrases were found in your resume. Consider replacing them with measurable or specific language:
-      </p>
-
-      {/* Show each flagged phrase in a list */}
-      <ul>
-        {found.map((phrase, i) => (
-          <li key={i}>{phrase}</li>
-        ))}
-      </ul>
+      <h3 className="content-warnings-title">Content Warnings</h3>
+      {foundFillers.length > 0 ? (
+        <ul>
+          {foundFillers.map(phrase => (
+            <li key={phrase} style={{ color: '#f4a261' }}>
+              Avoid using “{phrase}” – try to be more specific!
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ color: '#2a9d8f' }}>No common buzzwords or filler phrases detected!</p>
+      )}
     </div>
   );
 }

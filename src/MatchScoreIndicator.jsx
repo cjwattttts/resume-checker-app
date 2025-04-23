@@ -3,23 +3,35 @@
 
 import React from 'react';
 
-function MatchScoreIndicator({ resumeText }) {
-  // Key Business Analyst skills to check for
-  const baSkills = [
+const professionSkills = {
+  'business-analyst': [
     'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
     'Storytelling', 'Agile', 'JIRA', 'KPIs',
     'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
-  ];
+  ],
+  'project-manager': [
+    'Project Planning', 'Risk Management', 'Scrum', 'Kanban', 'Budgeting',
+    'Stakeholder Management', 'Scheduling', 'Leadership', 'MS Project',
+    'Communication', 'Resource Allocation', 'Timeline', 'Reporting'
+  ],
+  'data-analyst': [
+    'Python', 'R', 'SQL', 'Excel', 'Tableau', 'Power BI',
+    'Data Cleaning', 'Statistics', 'Visualization', 'Pandas',
+    'Machine Learning', 'Reporting', 'Data Mining'
+  ],
+  'web-developer': [
+    'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'APIs',
+    'Responsive Design', 'Git', 'Webpack', 'Testing',
+    'Accessibility', 'Performance', 'Deployment'
+  ]
+};
 
-  // See which ones are mentioned in the resume
-  const matched = baSkills.filter(skill =>
+function MatchScoreIndicator({ resumeText, profession }) {
+  const skills = professionSkills[profession] || [];
+  const matched = skills.filter(skill =>
     resumeText.toLowerCase().includes(skill.toLowerCase())
   );
-
-  // Convert number of matches into a percentage
-  const percent = Math.round((matched.length / baSkills.length) * 100);
-
-  // Choose color based on performance
+  const percent = skills.length > 0 ? Math.round((matched.length / skills.length) * 100) : 0;
   const color = percent >= 80 ? '#2a9d8f' : percent >= 50 ? '#f4a261' : '#e76f51';
 
   return (

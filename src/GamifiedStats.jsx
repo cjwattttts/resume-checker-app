@@ -1,64 +1,68 @@
-// I want to track resume quality by awarding XP and badges based on keywords
-// Each skill match adds XP, filler phrases subtract XP, and XP increases level
-// Add animated badges, glowing XP level bar, and proper emoji styling
-// Also add summary sentence that only includes skills if they're found
-
 import React, { useEffect, useState } from 'react';
 
-function GamifiedStats({ resumeText }) {
+const professionSkills = {
+  'business-analyst': [
+    'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
+    'Storytelling', 'Agile', 'JIRA', 'KPIs',
+    'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
+  ],
+  'project-manager': [
+    'Project Planning', 'Risk Management', 'Scrum', 'Kanban', 'Budgeting',
+    'Stakeholder Management', 'Scheduling', 'Leadership', 'MS Project',
+    'Communication', 'Resource Allocation', 'Timeline', 'Reporting'
+  ],
+  'data-analyst': [
+    'Python', 'R', 'SQL', 'Excel', 'Tableau', 'Power BI',
+    'Data Cleaning', 'Statistics', 'Visualization', 'Pandas',
+    'Machine Learning', 'Reporting', 'Data Mining'
+  ],
+  'web-developer': [
+    'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'APIs',
+    'Responsive Design', 'Git', 'Webpack', 'Testing',
+    'Accessibility', 'Performance', 'Deployment'
+  ]
+};
+
+const fillerPhrases = [
+  'responsible for', 'team player', 'hardworking', 'detail-oriented',
+  'go-getter', 'works well under pressure', 'self-starter'
+];
+
+function GamifiedStats({ resumeText, profession }) {
   const [xp, setXp] = useState(0);
   const [level, setLevel] = useState(1);
   const [badges, setBadges] = useState([]);
   const [summary, setSummary] = useState('');
 
-  // student prompt: track which keywords give XP
-  const skills = [
-    'SQL', 'Excel', 'Power BI', 'Tableau', 'Data Analysis',
-    'Storytelling', 'Agile', 'JIRA', 'KPIs',
-    'Communication', 'Adaptability', 'Stakeholders', 'Visualization'
-  ];
-
-  // student prompt: subtract XP for vague filler terms
-  const fillerPhrases = [
-    'responsible for', 'team player', 'hardworking', 'detail-oriented',
-    'go-getter', 'works well under pressure', 'self-starter'
-  ];
-
   useEffect(() => {
-    // student: detect matched keywords
+    const skills = professionSkills[profession] || [];
     const matched = skills.filter(skill =>
       resumeText.toLowerCase().includes(skill.toLowerCase())
     );
 
-    // student: detect filler phrases
     const fillerCount = fillerPhrases.filter(phrase =>
       resumeText.toLowerCase().includes(phrase)
     ).length;
 
-    // student: calculate total XP
     const rawXp = matched.length * 10 - fillerCount * 5;
     const safeXp = Math.max(0, rawXp);
     setXp(safeXp);
 
-    // student: update level based on XP
     setLevel(Math.floor(safeXp / 50) + 1);
 
-    // student: badge logic
     const newBadges = [];
     if (matched.length >= 5) newBadges.push('🧠 Skill Stacker');
     if (fillerCount === 0 && resumeText.length > 0) newBadges.push('🧹 Buzzword Killer');
     if (resumeText.length > 1000) newBadges.push('📜 Verbose Veteran');
     setBadges(newBadges);
 
-    // student: generate summary only if skills exist
-    const score = Math.round((matched.length / skills.length) * 100);
-    let summaryText = `This resume aligns with ${score}% of key Business Analyst skills.`;
-if (matched.length > 0) {
-  summaryText += ` Core strengths include: ${matched.join(', ')}.`;
-}
-setSummary(summaryText);
+    const score = skills.length > 0 ? Math.round((matched.length / skills.length) * 100) : 0;
+    let summaryText = `This resume aligns with ${score}% of key ${profession.replace('-', ' ')} skills.`;
+    if (matched.length > 0) {
+      summaryText += ` Core strengths include: ${matched.join(', ')}.`;
+    }
     setSummary(summaryText);
-  }, [resumeText]);
+  }, [resumeText, profession]);
 
   const xpProgress = xp % 50;
   const glowClass = xpProgress === 0 && xp > 0 ? 'glow-border' : '';
@@ -110,6 +114,26 @@ setSummary(summaryText);
           <p style={{ color: '#888', marginTop: '0.5rem' }}>None yet – keep going!</p>
         )}
       </div>
+
+      {/* Copy summary button */}
+      <button
+        onClick={handleCopy}
+        className="copy-summary-button"
+        style={{
+          marginTop: '1.5rem',
+          padding: '0.5rem 1.2rem',
+          backgroundColor: '#ffffff',
+          color: '#1e1f23',
+          fontWeight: '600',
+          border: '2px solid #8e2de2',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          transition: 'all 0.2s ease-in-out'
+        }}
+      >
+        Copy Gamified Summary
+      </button>
+      <p style={{ marginTop: '1rem', color: '#cbb8ff', fontSize: '1.05rem' }}>{summary}</p>
     </div>
   );
 }
