@@ -36,6 +36,9 @@ p {
   color: #ffffff;
   font-size: 1.15rem;
   margin-bottom: 1.2rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 /* Link style */
@@ -58,6 +61,7 @@ a {
   align-items: center;
   gap: 2rem;
   overflow: hidden;
+  /* Remove word-break, overflow-wrap, white-space from here! */
 }
 
 /* Resume textarea */
@@ -75,12 +79,9 @@ textarea {
   color: #ffffff;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
-
-  /* ✅ These force the text to wrap instead of stretch */
   white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: break-word;
-
   resize: vertical;
 }
 
@@ -123,6 +124,9 @@ ul {
 li {
   padding: 0.4rem 0;
   font-size: 1.05rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 li::before {
@@ -199,12 +203,6 @@ footer {
   color: #999;
 }
 
-/* Force breaking of long words in all paragraphs and list items */
-p, li {
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
 /* Responsive layout */
 @media (max-width: 768px) {
   body {
@@ -220,9 +218,4 @@ p, li {
   }
 }
 
-/* Fix layout expansion when pasting long text */
-textarea, .container, p, li, div {
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
+/* DO NOT apply white-space: pre-wrap or overflow-wrap: anywhere to .container or all divs! */
