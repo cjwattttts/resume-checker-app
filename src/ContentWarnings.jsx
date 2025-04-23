@@ -25,7 +25,7 @@ function ContentWarnings({ resumeText, profession }) {
           ))}
         </ul>
       ) : (
-        <p style={{ color: '#2a9d8f' }}>No common buzzwords or filler phrases detected!</p>
+        <p style={{ color: '#ffffff' }}>Great job! Your resume does not contain any common buzzwords or filler phrases. This means your language is specific and impactful.</p>
       )}
     </div>
   );

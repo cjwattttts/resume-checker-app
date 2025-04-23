@@ -6,7 +6,6 @@ import ResumeInputArea from './ResumeInputArea';
 import MatchScoreIndicator from './MatchScoreIndicator';
 import KeywordInsight from './KeywordInsight';
 import ContentWarnings from './ContentWarnings';
-import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
 import upwordLogo from './photos/upword.png';
 
@@ -74,9 +73,6 @@ function App() {
 
       {/* Content warnings */}
       <ContentWarnings resumeText={resumeText} profession={profession} />
-
-      {/* Resume summary */}
-      <ResumeSummary resumeText={resumeText} profession={profession} />
 
       {/* Footer */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>

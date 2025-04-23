@@ -115,25 +115,27 @@ function GamifiedStats({ resumeText, profession }) {
         )}
       </div>
 
-      {/* Copy summary button */}
-      <button
-        onClick={handleCopy}
-        className="copy-summary-button"
-        style={{
-          marginTop: '1.5rem',
-          padding: '0.5rem 1.2rem',
-          backgroundColor: '#ffffff',
-          color: '#1e1f23',
-          fontWeight: '600',
-          border: '2px solid #8e2de2',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease-in-out'
-        }}
-      >
-        Copy Gamified Summary
-      </button>
-      <p style={{ marginTop: '1rem', color: '#cbb8ff', fontSize: '1.05rem' }}>{summary}</p>
+      {/* Gamified summary and copy button at the bottom */}
+      <div style={{ marginTop: '2rem' }}>
+        <p style={{ color: '#cbb8ff', fontSize: '1.05rem' }}>{summary}</p>
+        <button
+          onClick={handleCopy}
+          className="copy-summary-button"
+          style={{
+            marginTop: '1rem',
+            padding: '0.5rem 1.2rem',
+            backgroundColor: '#ffffff',
+            color: '#1e1f23',
+            fontWeight: '600',
+            border: '2px solid #8e2de2',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-in-out'
+          }}
+        >
+          Copy Gamified Summary
+        </button>
+      </div>
     </div>
   );
 }
