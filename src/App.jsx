@@ -15,64 +15,66 @@ function App() {
   const [resumeText, setResumeText] = useState('');
 
   return (
-    <div className="container">
-      {/* Logo */}
-      <img
-        src={upwordLogo}
-        alt="Upword Logo"
-        style={{
-          height: '210px',
-          marginBottom: '0.5rem',
-          display: 'block',
-          marginLeft: 'auto',
-          marginRight: 'auto'
-        }}
-      />
+    <>
+      <div className="container">
+        {/* Logo */}
+        <img
+          src={upwordLogo}
+          alt="Upword Logo"
+          style={{
+            height: '210px',
+            marginBottom: '0.5rem',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        />
 
-      {/* Subtitle */}
-      <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
-        Evaluate and improve your resume with instant insights and gamified feedback.
-      </p>
+        {/* Subtitle */}
+        <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
+          Evaluate and improve your resume with instant insights and gamified feedback.
+        </p>
 
-      {/* Resume input */}
-      <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
+        {/* Resume input */}
+        <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
-      {/* Gamified stats */}
-      <GamifiedStats resumeText={resumeText} />
+        {/* Gamified stats */}
+        <GamifiedStats resumeText={resumeText} />
 
-      {/* Progress bar for skill match percentage */}
-      <MatchScoreIndicator resumeText={resumeText} />
+        {/* Progress bar for skill match percentage */}
+        <MatchScoreIndicator resumeText={resumeText} />
 
-      {/* Skills matched/missing */}
-      <KeywordInsight resumeText={resumeText} />
+        {/* Skills matched/missing */}
+        <KeywordInsight resumeText={resumeText} />
 
-      {/* Content warnings */}
-      <ContentWarnings resumeText={resumeText} />
+        {/* Content warnings */}
+        <ContentWarnings resumeText={resumeText} />
 
-      {/* Resume summary */}
-      <ResumeSummary resumeText={resumeText} />
+        {/* Resume summary */}
+        <ResumeSummary resumeText={resumeText} />
+      </div>
 
-      {/* Mountain photo at the bottom */}
+      {/* Large mountain photo at the very bottom, outside the container */}
       <img
         src={mountainPhoto}
         alt="Mountain"
         style={{
           display: 'block',
-          width: '100%',
-          maxWidth: '1200px',
-          height: '340px',
+          width: '100vw',
+          maxWidth: '100%',
+          height: '400px',
           objectFit: 'cover',
-          borderRadius: '18px',
-          margin: '3rem auto 2rem auto',
+          borderRadius: 0,
+          margin: '0 auto',
           boxShadow: '0 8px 32px rgba(0,0,0,0.35)'
         }}
       />
 
-      {/* Footer */}
+      {/* Footer outside the container */}
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
-    </div>
+    </>
   );
 }
 
