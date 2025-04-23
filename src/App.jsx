@@ -8,6 +8,7 @@ import KeywordInsight from './KeywordInsight';
 import ContentWarnings from './ContentWarnings';
 import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
+import upwordLogo from './photos/upword.png'; // Import the logo image
 
 function App() {
   // Store the user's pasted resume text
@@ -16,8 +17,21 @@ function App() {
   return (
     // Layout container with title, tools, and feedback panels
     <div className="container">
-      <h1 style={{ color: '#264653' }}>Business Analyst Resume Analyzer</h1>
-      <p style={{ color: '#6c757d', marginBottom: '1.5rem', textAlign: 'center' }}>
+      {/* Replace title with logo */}
+      <img
+        src={upwordLogo}
+        alt="Upword Logo"
+        style={{
+          height: '80px',
+          marginBottom: '0.5rem',
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}
+      />
+
+      {/* Subtitle text under logo */}
+      <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
         Evaluate and improve your resume with instant insights and gamified feedback.
       </p>
 
