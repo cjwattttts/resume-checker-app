@@ -21,17 +21,12 @@ function App() {
         alt="Upword Logo"
         style={{
           height: '220px',
-          marginBottom: '0rem',
+          marginBottom: '3rem',
           display: 'block',
           marginLeft: 'auto',
           marginRight: 'auto'
         }}
       />
-
-      {/* Subtitle */}
-      <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
-        Evaluate and improve your resume with instant insights and gamified feedback.
-      </p>
 
       {/* Resume input */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
