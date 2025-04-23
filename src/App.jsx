@@ -15,7 +15,7 @@ function App() {
   const [resumeText, setResumeText] = useState('');
 
   return (
-    <>
+    <React.Fragment>
       <div className="container">
         {/* Logo */}
         <img
@@ -57,8 +57,7 @@ function App() {
       <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
-    </>
-  );
-}
+    </React.Fragment>
+
 
 export default App;
