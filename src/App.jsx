@@ -21,7 +21,7 @@ function App() {
         alt="Upword Logo"
         style={{
           height: '220px',
-          marginBottom: '3rem',
+          marginBottom: '2rem',
           display: 'block',
           marginLeft: 'auto',
           marginRight: 'auto'
