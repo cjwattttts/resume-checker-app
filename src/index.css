@@ -178,10 +178,11 @@ li::before {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+  /* Remove font-size here */
 }
 
 .resume-summary h3 {
-  font-size: 1.7rem; /* Make the "Resume Summary" heading bigger */
+  font-size: 1.7rem; /* Only the header is big */
   margin-bottom: 0.7rem;
 }
 
