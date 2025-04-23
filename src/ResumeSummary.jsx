@@ -30,8 +30,8 @@ function ResumeSummary({ resumeText }) {
       borderTop: '1px solid #eee', 
       paddingTop: '1rem', 
       textAlign: 'center'
-    }}>
-      <h3>Resume Summary</h3>
+    }} className="resume-summary">
+      <h3 className="resume-summary-title">Resume Summary</h3>
       <p>{summary}</p>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}>
         <button 
