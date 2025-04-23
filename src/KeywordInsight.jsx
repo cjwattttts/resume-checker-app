@@ -36,19 +36,23 @@ function KeywordInsight({ resumeText, profession }) {
   );
 
   return (
-    <div className="skills-list-container">
-      <h3 className="skills-section-title">Skills You Have</h3>
-      <ul className="skills-list">
-        {matched.length > 0 ? matched.map(skill => (
-          <li key={skill} className="matched-skill">{skill}</li>
-        )) : <li style={{ color: '#888' }}>No key skills detected yet.</li>}
-      </ul>
-      <h3 className="skills-section-title" style={{ marginTop: '1.5rem' }}>Skills You’re Missing</h3>
-      <ul className="skills-list">
-        {missing.length > 0 ? missing.map(skill => (
-          <li key={skill} className="missing-skill">{skill}</li>
-        )) : <li style={{ color: '#888' }}>None! You have all the key skills.</li>}
-      </ul>
+    <div className="skills-list-container" style={{ display: 'flex', gap: '2.5rem', justifyContent: 'center', width: '100%' }}>
+      <div style={{ flex: 1 }}>
+        <h3 className="skills-section-title">Skills You Have</h3>
+        <ul className="skills-list">
+          {matched.length > 0 ? matched.map(skill => (
+            <li key={skill} className="matched-skill">{skill}</li>
+          )) : <li style={{ color: '#888' }}>No key skills detected yet.</li>}
+        </ul>
+      </div>
+      <div style={{ flex: 1 }}>
+        <h3 className="skills-section-title">Skills You’re Missing</h3>
+        <ul className="skills-list">
+          {missing.length > 0 ? missing.map(skill => (
+            <li key={skill} className="missing-skill">{skill}</li>
+          )) : <li style={{ color: '#888' }}>None! You have all the key skills.</li>}
+        </ul>
+      </div>
     </div>
   );
 }
