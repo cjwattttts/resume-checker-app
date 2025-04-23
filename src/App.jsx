@@ -9,6 +9,7 @@ import ContentWarnings from './ContentWarnings';
 import ResumeSummary from './ResumeSummary';
 import GamifiedStats from './GamifiedStats';
 import upwordLogo from './photos/upword.png';
+import mountainPhoto from './photos/mountain.png'; // Make sure this path matches your file
 
 function App() {
   const [resumeText, setResumeText] = useState('');
@@ -36,7 +37,7 @@ function App() {
       {/* Resume input */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
-      {/* Gamified stats moved here */}
+      {/* Gamified stats */}
       <GamifiedStats resumeText={resumeText} />
 
       {/* Progress bar for skill match percentage */}
@@ -51,8 +52,24 @@ function App() {
       {/* Resume summary */}
       <ResumeSummary resumeText={resumeText} />
 
+      {/* Mountain photo at the bottom */}
+      <img
+        src={mountainPhoto}
+        alt="Mountain"
+        style={{
+          display: 'block',
+          width: '100%',
+          maxWidth: '1200px',
+          height: '340px',
+          objectFit: 'cover',
+          borderRadius: '18px',
+          margin: '3rem auto 2rem auto',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.35)'
+        }}
+      />
+
       {/* Footer */}
-      <footer style={{ marginTop: '4rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
+      <footer style={{ marginTop: '2rem', color: '#adb5bd', fontSize: '0.85rem', textAlign: 'center' }}>
         Built by Cameron Watts – Business Analytics & Information Systems, USF
       </footer>
     </div>
