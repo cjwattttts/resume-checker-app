@@ -20,7 +20,7 @@ function App() {
         src={upwordLogo}
         alt="Upword Logo"
         style={{
-          height: '200px',
+          height: '300px',
           marginBottom: '0rem',
           display: 'block',
           marginLeft: 'auto',
