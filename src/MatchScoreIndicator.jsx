@@ -29,7 +29,7 @@ function MatchScoreIndicator({ resumeText }) {
       </h3>
 
       {/* Centered progress bar with centered percentage */}
-      <div className="score-bar-container" style={{ position: 'relative', maxWidth: '400px', width: '100%', margin: '0 auto' }}>
+      <div className="score-bar-container" style={{ position: 'relative', maxWidth: '700px', width: '100%', margin: '0 auto' }}>
         {/* Filled bar */}
         <div
           className="score-bar-fill"
