@@ -52,9 +52,11 @@ function GamifiedStats({ resumeText }) {
 
     // student: generate summary only if skills exist
     const score = Math.round((matched.length / skills.length) * 100);
-    const summaryText = matched.length > 0
-      ? `This resume aligns with ${score}% of key Business Analyst skills. Core strengths include: ${matched.join(', ')}.`
-      : `This resume aligns with ${score}% of key Business Analyst skills.`;
+    let summaryText = `This resume aligns with ${score}% of key Business Analyst skills.`;
+if (matched.length > 0) {
+  summaryText += ` Core strengths include: ${matched.join(', ')}.`;
+}
+setSummary(summaryText);
     setSummary(summaryText);
   }, [resumeText]);
 
