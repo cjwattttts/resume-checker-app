@@ -180,6 +180,11 @@ li::before {
   margin: 0 auto;
 }
 
+.resume-summary h3 {
+  font-size: 1.7rem; /* Make the "Resume Summary" heading bigger */
+  margin-bottom: 0.7rem;
+}
+
 .copy-summary-button {
   display: block;
   margin: 1rem auto 0 auto;
