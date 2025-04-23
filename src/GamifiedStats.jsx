@@ -94,7 +94,8 @@ setSummary(summaryText);
             transition: 'width 0.4s ease',
           }}
         />
-      </div>}
+      </div>
+      
       <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', color: '#ffffff' }}>
         <strong>Badges:</strong>
       </p>
