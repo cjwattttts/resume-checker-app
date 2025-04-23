@@ -50,29 +50,21 @@ function App() {
         {/* Resume summary */}
         <ResumeSummary resumeText={resumeText} />
 
-        <div className="container" style={{ position: 'relative', paddingBottom: 0 }}>
-        {/* ...other content... */}
-
         {/* Mountain photo at the very bottom, inside the container */}
         <img
           src={mountainPhoto}
           alt="Mountain"
           style={{
-            position: 'absolute',
-            left: 0,
-            bottom: 0,
+            display: 'block',
             width: '100%',
+            maxWidth: '100%',
             height: '400px',
-            objectFit: 'contain',      // Show the whole mountain
-            objectPosition: 'bottom',  // Anchor the base to the bottom
+            objectFit: 'cover',
             borderRadius: 0,
             margin: 0,
-            boxShadow: 'none',
-            zIndex: 1,
-            background: '#1e1f23'
+            boxShadow: 'none'
           }}
         />
-      </div>
       </div>
 
       {/* Footer outside the container */}
