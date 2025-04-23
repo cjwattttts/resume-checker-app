@@ -19,7 +19,7 @@ function ContentWarnings({ resumeText, profession }) {
       {foundFillers.length > 0 ? (
         <ul>
           {foundFillers.map(phrase => (
-            <li key={phrase} style={{ color: '#f4a261' }}>
+            <li key={phrase} style={{ color: '#ffffff' }}>
               Avoid using “{phrase}” – try to be more specific!
             </li>
           ))}
