@@ -24,14 +24,14 @@ function App() {
           marginBottom: '0.5rem',
           display: 'block',
           marginLeft: 'auto',
-          marginRight: 'auto',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)' // Soft shadow
+          marginRight: 'auto'
         }}
       />
-  {/* Subtitle */}
-    <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
-      Evaluate and improve your resume with instant insights and gamified feedback.
-    </p>
+
+      {/* Subtitle */}
+      <p style={{ color: '#ffffff', marginBottom: '1.5rem', textAlign: 'center' }}>
+        Evaluate and improve your resume with instant insights and gamified feedback.
+      </p>
 
       {/* Resume input */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
