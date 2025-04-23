@@ -91,28 +91,6 @@ setSummary(summaryText);
         }} />
       </div>
 
-      {/* Resume Summary */}
-      <div style={{ marginTop: '2rem', borderTop: '1px solid #eee', paddingTop: '1rem', textAlign: 'center' }}>
-        <h3>Resume Summary</h3>
-        <p>{summary}</p>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}>
-          <button
-            onClick={handleCopy}
-            style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: '#ffffff',
-              color: '#1e1f23',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontWeight: '600'
-            }}
-          >
-            Copy Summary
-          </button>
-        </div>
-      </div>
-
       {/* Badges */}
       <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', color: '#ffffff' }}>
         <strong>Badges:</strong>
