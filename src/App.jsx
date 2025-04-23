@@ -62,12 +62,8 @@ function App() {
       {/* Resume input */}
       <ResumeInputArea resumeText={resumeText} setResumeText={setResumeText} />
 
-      <hr className="section-divider" />
-
       {/* Gamified stats */}
       <GamifiedStats resumeText={resumeText} profession={profession} />
-
-      <hr className="section-divider" />
 
       {/* Progress bar for skill match percentage */}
       <MatchScoreIndicator resumeText={resumeText} profession={profession} />
